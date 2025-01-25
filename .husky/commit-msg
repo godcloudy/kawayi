@@ -1,7 +1,15 @@
-#!/bin/sh
+# 提交格式
+# feat: add new feature for user login
 
-# shellcheck source=./_/husky.sh
-. "$(dirname "$0")/_/husky.sh"
+# Added a new feature to support user login functionality with OAuth authentication.
+
+# - Implemented login endpoint.
+# - Added necessary tests.
+
+##!/bin/sh
+#
+## shellcheck source=./_/husky.sh
+#. "$(dirname "$0")/_/husky.sh"
 
 PATH="/usr/local/bin:$PATH"
 

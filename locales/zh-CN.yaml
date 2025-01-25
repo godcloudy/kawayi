@@ -1,4 +1,5 @@
 buttons:
+  pureSiteMessages: 站内消息
   pureAccountSettings: 账户设置
   pureLoginOut: 退出系统
   pureLogin: 登录

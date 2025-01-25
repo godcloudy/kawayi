@@ -9,6 +9,8 @@ import LaySidebarBreadCrumb from "../lay-sidebar/components/SidebarBreadCrumb.vu
 import LaySidebarTopCollapse from "../lay-sidebar/components/SidebarTopCollapse.vue";
 
 import GlobalizationIcon from "@/assets/svg/globalization.svg?component";
+import SiteMessagesIcon from "@iconify-icons/ri/message-2-line";
+import ArrowDown from "@iconify-icons/ep/arrow-down";
 import AccountSettingsIcon from "@iconify-icons/ri/user-settings-line";
 import LogoutCircleRLine from "@iconify-icons/ri/logout-circle-r-line";
 import Setting from "@iconify-icons/ri/settings-3-line";
@@ -88,13 +90,22 @@ const { t, locale, translationCh, translationEn } = useTranslationLang();
       <!-- 消息通知 -->
       <LayNotice id="header-notice" />
       <!-- 退出登录 -->
-      <el-dropdown trigger="click">
+      <el-dropdown trigger="hover">
         <span class="el-dropdown-link navbar-bg-hover select-none">
           <img :src="userAvatar" :style="avatarsStyle" />
           <p v-if="username" class="dark:text-white">{{ username }}</p>
+          <IconifyIconOffline :icon="ArrowDown" style="margin: 5px" />
         </span>
         <template #dropdown>
           <el-dropdown-menu class="logout">
+            <!--站内信 @click="toSiteMessages"-->
+            <el-dropdown-item>
+              <IconifyIconOffline
+                :icon="SiteMessagesIcon"
+                style="margin: 5px"
+              />
+              {{ t("buttons.pureSiteMessages") }}
+            </el-dropdown-item>
             <el-dropdown-item @click="toAccountSettings">
               <IconifyIconOffline
                 :icon="AccountSettingsIcon"
@@ -143,6 +154,11 @@ const { t, locale, translationCh, translationEn } = useTranslationLang();
     min-width: 280px;
     height: 48px;
     color: #000000d9;
+
+    // 消除dropdown组件hover状态下的黑边
+    .el-tooltip__trigger:focus {
+      outline: none; // unset 这个也行
+    }
 
     .el-dropdown-link {
       display: flex;

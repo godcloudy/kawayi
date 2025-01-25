@@ -27,8 +27,8 @@ export default defineComponent({
       return h(
         "svg",
         {
-          class: "icon-svg",
-          "aria-hidden": true
+          class: "icon-svg"
+          // "aria-hidden": true // 点击svg图标，console会有概率提示屏幕阅读报错
         },
         {
           default: () => [

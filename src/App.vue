@@ -25,3 +25,10 @@ export default defineComponent({
   }
 });
 </script>
+
+<style lang="scss">
+// 消除错误：Blocked aria-hidden on an element because its descendant retained focus. The focus must not be hidde
+input[aria-hidden="true"] {
+  display: none !important;
+}
+</style>
